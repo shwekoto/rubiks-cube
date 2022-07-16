@@ -1,0 +1,798 @@
+#rubiks cube
+import maya.cmds as cmds
+import functools
+def createUI(pWindowTitle , pApplyCallback):
+    
+    windowID = 'myWindowID'
+    
+    if cmds.window(windowID, exists = True):
+        cmds.deleteUI(windowID)
+    
+    cmds.window(windowID, title = pWindowTitle, sizeable = True, resizeToFitChildren = True, leftEdge = 10, )
+    cmds.rowColumnLayout( numberOfColumns = 3, columnAlign = (1,'center'), columnWidth = [ (1,80), (2,10), (3,70) ], columnOffset = [(1,'both',3)], rowSpacing = [15,5], columnSpacing = [1,5] )
+    
+    global valfun
+    def valfun():
+           
+        getShape1 = cmds.xform('box_1_loc', q= True, t=True)
+        getShape1 = [ round(elem) for elem in getShape1 ]
+        getShape1 = [ int(elem) for elem in getShape1 ]
+            
+        getShape2 = cmds.xform('box_2_loc', q= True, t=True)
+        getShape2 = [ round(elem) for elem in getShape2 ]
+        getShape2 = [ int(elem) for elem in getShape2 ]
+            
+        getShape3 = cmds.xform('box_3_loc', q= True, t=True)
+        getShape3 = [ round(elem) for elem in getShape3 ]
+        getShape3 = [ int(elem) for elem in getShape3 ]
+            
+        getShape4 = cmds.xform('box_4_loc', q= True, t=True)
+        getShape4 = [ round(elem) for elem in getShape4 ]
+        getShape4 = [ int(elem) for elem in getShape4 ]
+            
+        getShape5 = cmds.xform('box_5_loc', q= True, t=True)
+        getShape5 = [ round(elem) for elem in getShape5 ]
+        getShape5 = [ int(elem) for elem in getShape5 ]
+            
+        getShape6 = cmds.xform('box_6_loc', q= True, t=True)
+        getShape6 = [ round(elem) for elem in getShape6 ]
+        getShape6 = [ int(elem) for elem in getShape6 ]
+            
+        getShape7 = cmds.xform('box_7_loc', q= True, t=True)
+        getShape7 = [ round(elem) for elem in getShape7 ]
+        getShape7 = [ int(elem) for elem in getShape7 ]
+            
+        getShape8 = cmds.xform('box_8_loc', q= True, t=True)
+        getShape8 = [ round(elem) for elem in getShape8 ]
+        getShape8 = [ int(elem) for elem in getShape8 ]
+        
+        getShape9 = cmds.xform('box_9_loc', q= True, t=True)
+        getShape9 = [ round(elem) for elem in getShape9 ]
+        getShape9 = [ int(elem) for elem in getShape9 ]
+        
+        getShape10 = cmds.xform('box_10_loc', q= True, t=True)
+        getShape10 = [ round(elem) for elem in getShape10 ]
+        getShape10 = [ int(elem) for elem in getShape10 ]
+        
+        getShape11 = cmds.xform('box_11_loc', q= True, t=True)
+        getShape11 = [ round(elem) for elem in getShape11 ]
+        getShape11 = [ int(elem) for elem in getShape11 ]
+        
+        getShape12 = cmds.xform('box_12_loc', q= True, t=True)
+        getShape12 = [ round(elem) for elem in getShape12 ]
+        getShape12 = [ int(elem) for elem in getShape12 ]
+        
+        getShape13 = cmds.xform('box_13_loc', q= True, t=True)
+        getShape13 = [ round(elem) for elem in getShape13 ]
+        getShape13 = [ int(elem) for elem in getShape13 ]
+        
+        getShape14 = cmds.xform('box_14_loc', q= True, t=True)
+        getShape14 = [ round(elem) for elem in getShape14 ]
+        getShape14 = [ int(elem) for elem in getShape14 ]
+        
+        getShape15 = cmds.xform('box_15_loc', q= True, t=True)
+        getShape15 = [ round(elem) for elem in getShape15 ]
+        getShape15 = [ int(elem) for elem in getShape15 ]
+        
+        getShape16 = cmds.xform('box_16_loc', q= True, t=True)
+        getShape16 = [ round(elem) for elem in getShape16 ]
+        getShape16 = [ int(elem) for elem in getShape16 ]
+        
+        getShape17 = cmds.xform('box_17_loc', q= True, t=True)
+        getShape17 = [ round(elem) for elem in getShape17 ]
+        getShape17 = [ int(elem) for elem in getShape17 ]
+        
+        getShape18 = cmds.xform('box_18_loc', q= True, t=True)
+        getShape18 = [ round(elem) for elem in getShape18 ]
+        getShape18 = [ int(elem) for elem in getShape18 ]  
+        
+        getShape19 = cmds.xform('box_19_loc', q= True, t=True)
+        getShape19 = [ round(elem) for elem in getShape19 ]
+        getShape19 = [ int(elem) for elem in getShape19 ]
+        
+        getShape20 = cmds.xform('box_20_loc', q= True, t=True)
+        getShape20 = [ round(elem) for elem in getShape20 ]
+        getShape20 = [ int(elem) for elem in getShape20 ]  
+        
+        getShape21 = cmds.xform('box_21_loc', q= True, t=True)
+        getShape21 = [ round(elem) for elem in getShape21 ]
+        getShape21 = [ int(elem) for elem in getShape21 ] 
+        
+        getShape22 = cmds.xform('box_22_loc', q= True, t=True)
+        getShape22 = [ round(elem) for elem in getShape22 ]
+        getShape22 = [ int(elem) for elem in getShape22 ] 
+        
+        getShape23 = cmds.xform('box_23_loc', q= True, t=True)
+        getShape23 = [ round(elem) for elem in getShape23 ]
+        getShape23 = [ int(elem) for elem in getShape23 ] 
+        
+        getShape24 = cmds.xform('box_24_loc', q= True, t=True)
+        getShape24 = [ round(elem) for elem in getShape24 ]
+        getShape24 = [ int(elem) for elem in getShape24 ]
+        
+        getShape25 = cmds.xform('box_25_loc', q= True, t=True)
+        getShape25 = [ round(elem) for elem in getShape25 ]
+        getShape25 = [ int(elem) for elem in getShape25 ] 
+        
+        getShape26 = cmds.xform('box_26_loc', q= True, t=True)
+        getShape26 = [ round(elem) for elem in getShape26 ]
+        getShape26 = [ int(elem) for elem in getShape26 ]
+        
+        valCube1 = [1, 4, -3]
+        valCube2 = [1, 4, -1]
+        valCube3 = [1, 4, 1]
+        valCube4 = [1, 2, -3]
+        valCube5 = [1, 2, -1]
+        valCube6 = [1, 2, 1]
+        valCube7 = [1, 0, -3]
+        valCube8 = [1, 0, -1]
+        valCube9 = [1, 0, 1]
+        valCube10 = [-1, 4, -3]
+        valCube11 = [-1, 4, -1]
+        valCube12 = [-1, 4, 1]
+        valCube13 = [-1, 2, -3]
+        valCube14 = [-1, 2, 1]
+        valCube15 = [-1, 0, -3]
+        valCube16 = [-1, 0, -1]
+        valCube17 = [-1, 0, 1]
+        valCube18 = [-3, 4, -3]
+        valCube19 = [-3, 4, -1]
+        valCube20 = [-3, 4, 1]
+        valCube21 = [-3, 2, -3]
+        valCube22 = [-3, 2, -1]
+        valCube23 = [-3, 2, 1]
+        valCube24 = [-3, 0, -3]
+        valCube25 = [-3, 0, -1]
+        valCube26 = [-3, 0, 1]
+        
+            
+        values = [valCube1, valCube2, valCube3, valCube4, valCube5, valCube6, valCube7, valCube8, valCube9, valCube10, valCube11, valCube12, valCube13, valCube14, valCube15, valCube16, valCube17, valCube18, valCube19, valCube20, valCube21, valCube22, valCube23, valCube24, valCube25, valCube26]
+        getShape = [getShape1, getShape2, getShape3, getShape4, getShape5, getShape6, getShape7, getShape8, getShape9, getShape10, getShape11, getShape12, getShape13, getShape14, getShape15, getShape16, getShape17, getShape18, getShape19, getShape20, getShape21, getShape22, getShape23, getShape24, getShape25, getShape26]
+        print getShape
+        
+        shape1 = getShape.index(values[0])
+        shape2 = getShape.index(values[1])
+        shape3 = getShape.index(values[2])
+        shape4 = getShape.index(values[3])
+        shape5 = getShape.index(values[4])
+        shape6 = getShape.index(values[5])
+        shape7 = getShape.index(values[6])
+        shape8 = getShape.index(values[7])
+        shape9 = getShape.index(values[8])
+        shape10 = getShape.index(values[9])
+        shape11 = getShape.index(values[10])
+        shape12 = getShape.index(values[11])
+        shape13 = getShape.index(values[12])
+        shape14 = getShape.index(values[13])
+        shape15 = getShape.index(values[14])
+        shape16 = getShape.index(values[15])
+        shape17 = getShape.index(values[16])
+        shape18 = getShape.index(values[17])
+        shape19 = getShape.index(values[18])
+        shape20 = getShape.index(values[19])
+        shape21 = getShape.index(values[20])
+        shape22 = getShape.index(values[21])
+        shape23 = getShape.index(values[22])
+        shape24 = getShape.index(values[23])
+        shape25 = getShape.index(values[24])
+        shape26 = getShape.index(values[25])
+        
+        shapes = (shape1, shape2, shape3, shape4, shape5, shape6, shape7, shape8, shape9, shape10, shape11, shape12, shape13, shape14, shape15, shape16, shape17, shape18, shape19, shape20, shape21, shape22, shape23, shape24, shape25, shape26)
+        print shapes
+          
+        ctrlList = [['box_1_ctrl'], ['box_2_ctrl'], ['box_3_ctrl'], ['box_4_ctrl'], ['box_5_ctrl'], ['box_6_ctrl'] , ['box_7_ctrl'] , ['box_8_ctrl'], ['box_9_ctrl'], ['box_10_ctrl'], ['box_11_ctrl'], 
+                    ['box_12_ctrl'], ['box_13_ctrl'], ['box_14_ctrl'], ['box_15_ctrl'], ['box_16_ctrl'], ['box_17_ctrl'], ['box_18_ctrl'], ['box_19_ctrl'], ['box_20_ctrl'], ['box_21_ctrl'], 
+                    ['box_22_ctrl'], ['box_23_ctrl'], ['box_24_ctrl'], ['box_25_ctrl'], ['box_26_ctrl']]
+    
+        jntList = [['box_1_jnt'], ['box_2_jnt'], ['box_3_jnt'], ['box_4_jnt'], ['box_5_jnt'], ['box_6_jnt'] , ['box_7_jnt'] , ['box_8_jnt'], ['box_9_jnt'], ['box_10_jnt'], ['box_11_jnt'], ['box_12_jnt'], ['box_13_jnt'], 
+                       ['box_14_jnt'], ['box_15_jnt'], ['box_16_jnt'], ['box_17_jnt'], ['box_18_jnt'], ['box_19_jnt'], ['box_20_jnt'], ['box_21_jnt'], ['box_22_jnt'], ['box_23_jnt'], ['box_24_jnt'], ['box_25_jnt'], ['box_26_jnt']]
+        
+        if shapes != 0:
+            
+            privList = []
+            for shape in shapes:
+                privList.append(ctrlList[shape])
+            print privList;
+                
+            grpBcon = (privList[0], privList[1], privList[2], privList[3], privList[4], privList[5], privList[6], privList[7], privList[8])
+                
+            grpCcon = (privList[0], privList[3], privList[6], privList[9], privList[12], privList[14], privList[17], privList[20], privList[23])
+                
+            grpAcon = (privList[17], privList[18], privList[19], privList[20], privList[21], privList[22], privList[23], privList[24], privList[25])
+                
+            grpDcon = (privList[2], privList[5], privList[8], privList[11], privList[13], privList[16], privList[19], privList[22], privList[25])
+                
+            grpUpcon = (privList[0], privList[1], privList[2], privList[9], privList[10], privList[11], privList[17], privList[18], privList[19])
+                
+            grpDwncon = (privList[6], privList[7], privList[8], privList[14], privList[15], privList[16], privList[23], privList[24], privList[25])
+            
+            grpMidABcon = (privList[9], privList[10], privList[11], privList[12], privList[13], privList[14], privList[15], privList[16])
+            
+            grpMidCDcon = (privList[1], privList[4], privList[7], privList[10], privList[15], privList[18], privList[21], privList[24])
+            
+            grpMidUpDwncon = (privList[3], privList[4], privList[5], privList[12], privList[13], privList[20], privList[21], privList[22])
+            
+            afterList = []
+            for shape in shapes:
+                afterList.append(jntList[shape])
+            print afterList;
+                
+            grpBcont = (afterList[0], afterList[1], afterList[2], afterList[3], afterList[4], afterList[5], afterList[6], afterList[7], afterList[8])
+                
+            grpCcont = (afterList[0], afterList[3], afterList[6], afterList[9], afterList[12], afterList[14], afterList[17], afterList[20], afterList[23])
+                
+            grpAcont = (afterList[17], afterList[18], afterList[19], afterList[20], afterList[21], afterList[22], afterList[23], afterList[24], afterList[25])
+                
+            grpDcont = (afterList[2], afterList[5], afterList[8], afterList[11], afterList[13], afterList[16], afterList[19], afterList[22], afterList[25])
+                
+            grpUpcont = (afterList[0], afterList[1], afterList[2], afterList[9], afterList[10], afterList[11], afterList[17], afterList[18], afterList[19])
+                
+            grpDwncont = (afterList[6], afterList[7], afterList[8], afterList[14], afterList[15], afterList[16], afterList[23], afterList[24], afterList[25])
+            
+            grpMidABcont = (afterList[9], afterList[10], afterList[11], afterList[12], afterList[13], afterList[14], afterList[15], afterList[16])
+            
+            grpMidCDcont = (afterList[1], afterList[4], afterList[7], afterList[10], afterList[15], afterList[18], afterList[21], afterList[24])
+            
+            grpMidUpDwncont = (afterList[3], afterList[4], afterList[5], afterList[12], afterList[13], afterList[20], afterList[21], afterList[22])
+            
+            selected = cmds.ls(sl=1,sn=True)
+            grpA = ['grp_A']
+            grpB = ['grp_B']
+            grpC = ['grp_C']
+            grpD = ['grp_D']
+            grpup = ['grp_up']
+            grpdwn = ['grp_dwn']
+            grpmidAB = ['grp_mid_AB']
+            grpmidCD = ['grp_mid_CD']
+            grpMidUpDwn = ['grp_mid_UpDwn']
+            
+            a = cmds.getAttr('grp_A.rotateX');
+            #grpA groupings and keys
+            if selected == grpA:
+               for c in range(0,len(grpAcon)):
+                   cmds.parent(grpAcon[c], grpA)
+               for u in grpAcont:
+                   hierarchy = cmds.ls(u, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullA#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rx') 
+                   if c == []:
+                       o = cmds.group(u, n='nullA#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rx')      
+            if (a == 90) or (a == -90):
+                ag = []
+                for u in grpAcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    ag.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in ag: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'rx')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpAcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(ag[i],grpAcon[i]) for i in range(len(grpAcon))]
+                cmds.makeIdentity('grp_A', apply = True, rotate = True)
+            
+            #grpB groupings and keys
+            h = cmds.getAttr('grp_B.rotateX');                            
+            if selected == grpB:
+               for d in range(0,len(grpBcon)):
+                   cmds.parent(grpBcon[d], grpB)
+               for u in grpBcont:
+                   hierarchy = cmds.ls(u, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullB#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rx')   
+                   if c == []:
+                       o = cmds.group(u, n='nullB#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rx')   
+            if (h == 90) or (h == -90):
+                bg = []
+                for u in grpBcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    bg.append(c)
+                print bg
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in bg: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'rx')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpBcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(bg[i],grpBcon[i]) for i in range(len(grpBcon))]
+                cmds.makeIdentity('grp_B', apply = True, rotate = True)
+            
+            #grpC groupings and keys
+            c = cmds.getAttr('grp_C.rotateZ');                          
+            if selected == grpC:
+                for e in range(0,len(grpCcon)):
+                   cmds.parent(grpCcon[e], grpC)
+                for u in grpCcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                    if c != []:       
+                       o = cmds.group(c[0], n='nullC#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rz')
+                    if c == []:
+                       o = cmds.group(u, n='nullC#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rz')     
+            if (c == 90) or (c == -90):
+                cg = []
+                for u in grpCcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    cg.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in cg: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'rz')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpCcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(cg[i],grpCcon[i]) for i in range(len(grpCcon))]
+                cmds.makeIdentity('grp_C', apply = True, rotate = True)
+            
+            #grpD groupings and keys
+            d = cmds.getAttr('grp_D.rotateZ');       
+            if selected == grpD:   
+               for i in range(0,len(grpDcon)):
+                   cmds.parent(grpDcon[i], grpD)
+               for u in grpDcont:
+                   hierarchy = cmds.ls(u, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullD#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rz') 
+                   if c == []:
+                       o = cmds.group(u, n='nullD#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rz')     
+            if (d == 90) or (d == -90):
+                dg = []
+                for u in grpDcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    dg.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in dg: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'rz')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpDcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(dg[i],grpDcon[i]) for i in range(len(grpDcon))]
+                cmds.makeIdentity('grp_D', apply = True, rotate = True)
+        
+            #grpUP groupings and keys
+            e = cmds.getAttr('grp_up.rotateY'); 
+            if selected == grpup:
+               for b in range(0,len(grpUpcon)):
+                   cmds.parent(grpUpcon[b], grpup)
+               for v in grpUpcont:
+                   hierarchy = cmds.ls(v, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullUp#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'ry') 
+                   if c == []:
+                       o = cmds.group(v, n='nullUp#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'ry')     
+                   
+            if (e == 90) or (e == -90):
+                ug = []
+                for u in grpUpcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    ug.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in ug: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'ry')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpUpcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(ug[i],grpUpcon[i]) for i in range(len(grpUpcon))]
+                cmds.makeIdentity('grp_up', apply = True, rotate = True)
+        
+            #grpdwn groupings and keys
+            f = cmds.getAttr('grp_dwn.rotateY');
+            if selected == grpdwn:
+                for a in range(0,len(grpDwncon)):
+                    cmds.parent(grpDwncon[a], grpdwn)
+                for u in grpDwncont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']     
+                    if c != []:      
+                        o = cmds.group(c[0], n='nullDwn#')
+                        piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                        cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                        cmds.setKeyframe(o, at = 'ry') 
+                    if c == []:
+                        o = cmds.group(u, n='nullDwn#')
+                        piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                        cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                        cmds.setKeyframe(o, at = 'ry')  
+            if (f == 90) or (f == -90):
+                dg = []
+                for u in grpDwncont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    dg.append(c)
+                print dg
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in dg: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'ry')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpDwncon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(dg[i],grpDwncon[i]) for i in range(len(grpDwncon))]
+                cmds.makeIdentity('grp_dwn', apply = True, rotate = True)
+            
+            #midUPDwn groupings and keys   
+            g = cmds.getAttr('grp_mid_UpDwn.rotateY');
+            if selected == grpMidUpDwn:        
+               for g in range(0,len(grpMidUpDwncon)):
+                   cmds.parent(grpMidUpDwncon[g], grpMidUpDwn)
+               for u in grpMidUpDwncont:
+                   hierarchy = cmds.ls(u, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']  
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullUpDwn#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'ry') 
+                   if c == []:
+                       o = cmds.group(u, n='nullUpDwn#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'ry') 
+                           
+            if (g == 90) or (g == -90):
+                dug = []
+                for u in grpMidUpDwncont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    dug.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in dug: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'ry')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpMidUpDwncon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(dug[i],grpMidUpDwncon[i]) for i in range(len(grpMidUpDwncon))]
+                cmds.makeIdentity('grp_mid_UpDwn', apply = True, rotate = True) 
+                    
+            #grpmidAB groupings and keys
+            ab = cmds.getAttr('grp_mid_AB.rotateX');                   
+            if selected == grpmidAB:
+               for h in range(0,len(grpMidABcon)):
+                   cmds.parent(grpMidABcon[h], grpmidAB)
+               for u in grpMidABcont: 
+                   hierarchy = cmds.ls(u, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullMidAB#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rx') 
+                   if c == []:
+                       o = cmds.group(u, n='nullMidAB#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rx')       
+            if (ab == 90) or (ab == -90):
+                abg = []
+                for u in grpMidABcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    abg.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in abg: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'rx')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpMidABcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(abg[i],grpMidABcon[i]) for i in range(len(grpMidABcon))]
+                cmds.makeIdentity('grp_mid_AB', apply = True, rotate = True)
+            
+            #grpmidCD groupings and keys
+            cd = cmds.getAttr('grp_mid_CD.rotateZ');       
+            if selected == grpmidCD:
+               for i in range(0,len(grpMidCDcon)):
+                   cmds.parent(grpMidCDcon[i], grpmidCD)
+               for u in grpMidCDcont:
+                   hierarchy = cmds.ls(u, long=True)[0]
+                   nodes = [node for node in hierarchy.split('|') if node]
+                   c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform']
+                   if c != []:       
+                       o = cmds.group(c[0], n='nullmidCD#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rz') 
+                   if c == []:
+                       o = cmds.group(u, n='nullmidCD#')
+                       piv = cmds.xform ('root_sphere', piv=True, q=True, ws=True)
+                       cmds.xform( o, ws=True, piv=(piv[0], piv[1], piv[2]) )
+                       cmds.setKeyframe(o, at = 'rz')     
+            if (cd == 90) or (cd == -90):
+                cdg = []
+                for u in grpMidCDcont:
+                    hierarchy = cmds.ls(u, long=True)[0]
+                    nodes = [node for node in hierarchy.split('|') if node]
+                    c = [x for x in nodes if cmds.listRelatives(x, shapes=True) is None and cmds.nodeType(x) == 'transform'][0]
+                    cdg.append(c)
+                count = 26
+                c = cmds.currentTime ( cmds.currentTime(query = True) +10 );
+                for w in cdg: 
+                    cmds.parent(w,'root_ctrl')
+                    cmds.setKeyframe(w, at = 'rz')
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'root_ctrl' );cmds.makeIdentity('box_' + str(z+1) + '_loc', apply = True ,rotate = True);
+                for a in grpMidCDcon:
+                    cmds.parent(a, 'root_ctrl')
+                    cmds.makeIdentity(a, apply = True ,rotate = True, translate = True)
+                for z in range(count): cmds.parent( 'box_' + str(z+1) + '_loc', 'box_' + str(z+1) + '_ctrl') 
+         
+                [cmds.parent(cdg[i],grpMidCDcon[i]) for i in range(len(grpMidCDcon))]
+                cmds.makeIdentity('grp_mid_CD', apply = True, rotate = True)
+            
+    #information text
+    cmds.text( label = 'group' )
+    cmds.separator( h=20, style = 'none')
+    cmds.text( label = '90 or -90' )
+    
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpA buttons
+    def grpA(*pArgs):
+        cmds.select ('grp_A')
+        valfun()
+        cmds.select(clear = True)
+    
+    cmds.button(label = 'A', command = grpA)
+    cmds.separator( h=20, style = 'none')
+    grpA = cmds.intField(value = cmds.getAttr('grp_A.rotateX'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpB buttons
+    def grpB(*pArgs):
+        cmds.select ('grp_B')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'B', command = grpB)
+    cmds.separator( h=20, style = 'none')
+    grpB = cmds.intField(value = cmds.getAttr('grp_B.rotateX'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpC buttons
+    def grpC(*pArgs):
+        cmds.select ('grp_C')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'C', command = grpC)
+    cmds.separator( h=20, style = 'none')
+    grpC = cmds.intField(value = cmds.getAttr('grp_C.rotateZ'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpD buttons
+    def grpD(*pArgs):
+        cmds.select ('grp_D')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'D', command = grpD)
+    cmds.separator( h=20, style = 'none')
+    grpD = cmds.intField(value = cmds.getAttr('grp_D.rotateZ'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpUp buttons
+    def grpUp(*pArgs):
+        cmds.select ('grp_up')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'Up', command = grpUp)
+    cmds.separator( h=20, style = 'none')
+    grpUp = cmds.intField(value = cmds.getAttr('grp_up.rotateY'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpDwn buttons
+    def grpDwn(*pArgs):
+        cmds.select ('grp_dwn')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'Dwn', command = grpDwn)
+    cmds.separator( h=20, style = 'none')
+    grpDwn = cmds.intField(value = cmds.getAttr('grp_dwn.rotateY'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpMidUpDwn buttons
+    def grpMidUpDwn(*pArgs):
+        cmds.select ('grp_mid_UpDwn')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'MidUpDwn', command = grpMidUpDwn)
+    cmds.separator( h=20, style = 'none')
+    grpMidUpDwn = cmds.intField(value = cmds.getAttr('grp_mid_UpDwn.rotateY'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpMidAB buttons
+    def grpMidAB(*pArgs):
+        cmds.select ('grp_mid_AB')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'MidAB', command = grpMidAB)
+    cmds.separator( h=20, style = 'none')
+    grpMidAB = cmds.intField(value = cmds.getAttr('grp_mid_AB.rotateX'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #grpMidCD buttons
+    def grpMidCD(*pArgs):
+        cmds.select ('grp_mid_CD')
+        valfun()
+        cmds.select(clear = True)
+     
+    cmds.button(label = 'MidCD', command = grpMidCD)
+    cmds.separator( h=20, style = 'none')
+    grpMidCD = cmds.intField(value = cmds.getAttr('grp_mid_CD.rotateZ'))
+
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    cmds.separator( h=20, style = 'none')
+    
+    #apply button   
+    cmds.button(label = 'Apply', command = functools.partial( applyCallback, 
+                                                                grpA, grpB, grpC, grpD, grpUp, grpDwn, grpMidUpDwn, grpMidAB, grpMidCD ) )                                                            
+    cmds.separator( h=20, style = 'none')
+    def cancelCallback( *pArgs ):
+        if cmds.window(windowID, exists = True):
+            cmds.deleteUI(windowID)
+    cmds.button(label = 'Cancel', command = cancelCallback )
+    cmds.showWindow()
+    
+def applyCallback( pGrpA, pGrpB, pGrpC, pGrpD, pGrpUp, pGrpDwn, pGrpMidUpDwn, pGrpMidAB, pGrpMidCD, *pArgs):
+    ggrpA = cmds.intField( pGrpA , query = True, value = True)
+    cmds.setAttr('grp_A.rotateX', ggrpA)
+    
+    ggrpB = cmds.intField( pGrpB , query = True, value = True )
+    cmds.setAttr('grp_B.rotateX', ggrpB)
+    
+    ggrpC = cmds.intField( pGrpC , query = True, value = True )
+    cmds.setAttr('grp_C.rotateZ', ggrpC)
+    
+    ggrpD = cmds.intField( pGrpD , query = True, value = True )
+    cmds.setAttr('grp_D.rotateZ', ggrpD)
+    
+    ggrpUp = cmds.intField( pGrpUp , query = True, value = True )
+    cmds.setAttr('grp_up.rotateY', ggrpUp)
+    
+    ggrpDwn = cmds.intField( pGrpDwn , query = True, value = True )
+    cmds.setAttr('grp_dwn.rotateY', ggrpDwn)
+    
+    ggrpMidUpDwn = cmds.intField( pGrpMidUpDwn , query = True, value = True )
+    cmds.setAttr('grp_mid_UpDwn.rotateY', ggrpMidUpDwn)
+    
+    ggrpMidAB = cmds.intField( pGrpMidAB , query = True, value = True )
+    cmds.setAttr('grp_mid_AB.rotateX', ggrpMidAB)
+    
+    ggrpMidCD = cmds.intField( pGrpMidCD , query = True, value = True )
+    cmds.setAttr('grp_mid_CD.rotateZ', ggrpMidCD)
+    
+    valfun()
+    cmds.intField( pGrpA , edit= True, value = 0 )
+    cmds.intField( pGrpC , edit= True, value = 0 )
+    cmds.intField( pGrpB , edit= True, value = 0 )
+    cmds.intField( pGrpD , edit= True, value = 0 )
+    cmds.intField( pGrpUp , edit= True, value = 0 )
+    cmds.intField( pGrpDwn , edit= True, value = 0 )
+    cmds.intField( pGrpMidUpDwn , edit= True, value = 0 )
+    cmds.intField( pGrpMidAB , edit= True, value = 0 )
+    cmds.intField( pGrpMidCD , edit= True, value = 0 )
+    
+createUI('RubiksCube',applyCallback)
+    
